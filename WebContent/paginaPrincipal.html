@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bienvenido al Gestor de Electrodomésticos</title>
+</head>
+<script type="text/javascript">
+function enConstruccion()
+{
+	alert("Proximamente más opciones!");
+}
+function irAPaginaListado()
+{
+	location.href = "paginaListado.html";
+};
+function irAPaginaAlta()
+{
+	location.href = "paginaAlta.html";
+};
+</script>
+<body>
+<h1> Bienvenido ! </h1>
+<h2>Opciones</h2>
+<table>
+<tr>
+<td align="center"><input type="button" value="Agregar nuevo electrodomestico" onclick="irAPaginaAlta()" style="color: green;font-size: 12px;font-weight: bold"> </td>
+</tr>
+<tr>
+<td align="center"><input type="button" value="Listado" onclick="irAPaginaListado()" style="color: red;font-size: 12px;font-weight: bold"> </td>
+</tr>
+<tr>
+<td align="center"><input type="button" value="Otras opciones" onclick="enConstruccion()" style="color: orange;font-size: 12px;font-weight: bold"> </td>
+</tr>
+</table>
+</body>
+</html>

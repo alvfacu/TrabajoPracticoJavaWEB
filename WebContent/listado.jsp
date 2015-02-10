@@ -5,12 +5,17 @@
 <%@ page import="Negocio.ElectrodomesticoLogic;" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head><title>Listado de Electrodom�sticos</title></head>
+<head>
+<link href=”css/bootstrap.min.css” rel=”stylesheet” type=”text/css” />
+<script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+<title>Listado de Electrodomésticos</title>
+</head>
 <script type="text/javascript">
 function volverPagListado(){
-	window.location  = "http://localhost:8080/TPWEBFacundoAlvarez/paginaListado.html";
+	location.href  = "paginaListado.html";
 }
 </script>
+
 <body>
 	<h1 style="font-style: 2 ;color: blue;">LISTADO</h1>
 	
@@ -18,7 +23,7 @@ function volverPagListado(){
  
 <table border="1" bordercolor="Blue">
  <tr style="font-weight: bold;">
-  	<td> Descripci�n </td>
+  	<td> Descripción </td>
 	<td> Precio (U$S) </td>
 	<td> Color </td>
 	<td> Peso (kg) </td>
@@ -51,6 +56,5 @@ function volverPagListado(){
 </table>
 <br>
 <input type="button" value="Definir otros criterios" style="color: purple;" onClick="volverPagListado()">	
- 	
 </body>
 </html>

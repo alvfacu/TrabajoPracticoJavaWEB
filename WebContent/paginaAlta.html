@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Agregar nuevo electrodomestico</title>
+</head>
+<script type="text/javascript">
+function volverPaginaPpal()
+{
+	location.href = "paginaPrincipal.html";
+}
+
+function habilitar(value)
+{
+	if (value == "0")
+	{
+		document.getElementById('lavarropas').style.display ='none';
+		document.getElementById('television').style.display ='none';
+		document.getElementById('agregar').style.display ='none';
+	}
+	else if(value == "1")
+	{
+		document.getElementById('lavarropas').style.display = 'inherit';
+		document.getElementById('television').style.display = 'none';
+		document.getElementById('agregar').style.display ='inherit';
+	}
+	else if (value == "2")
+	{
+		document.getElementById('television').style.display ='inherit';
+		document.getElementById('lavarropas').style.display ='none';
+		document.getElementById('agregar').style.display ='inherit';
+	}
+}
+
+function validar() 
+{
+	return true;
+}
+
+</script>
+
+<body>
+<h1>Alta de Electrodomestico</h1>
+<form action="agregar" method="post" onsubmit="return validar()" name="alta" >
+<div style="margin: auto">
+<table>
+<tr> 
+<td colspan="4" style="font-weight: bold; font-size: large;"> Ingrese los datos requeridos para agregar nuevo electrodomestico: </td> 
+</tr>
+<tr>
+<td align="center"> Tipo: </td>
+<td> 
+<select name="cmbTipo" id="cmbTipo" onchange="habilitar(this.value);">
+	<option value='0'> </option>
+	<option value='1'>Lavarropas</option>
+  	<option value='2'>Television</option>
+</select> 
+</td>
+</tr>
+<tr> 
+<td align="center"> Precio base: </td>
+<td><input type="text" name="base" id="base" > </td>
+</tr>
+<tr>
+<td align="center"> Color: </td>
+<td><input type="text" name="color" id="color" > </td> 
+</tr>
+<tr> 
+<td align="center"> Peso: </td>
+<td><input type="text" name="peso" id="base" > </td>
+</tr>
+<tr> 
+<td align="center"> Consumo energético: </td>
+<td> 
+<select name="cmb">
+	<option value=' '> </option>
+	<option value="A">A</option>
+  	<option value="B">B</option>
+  	<option value="C">C</option>
+  	<option value="D">D</option>
+  	<option value="E">E</option>
+  	<option value="F">F</option>
+</select> 
+</td>
+</tr>
+</table>
+</div>
+
+<div id="lavarropas" style="display: none">
+<table>
+<tr>
+<td align="center"> Carga: </td>
+<td><input type="text" name="carga" id="carga" ></td> 
+</tr>
+</table>
+</div>
+
+<div id="television" style="display: none">
+<table>
+<tr>
+<td align="center"> Resolucion: </td>
+<td><input type="text" name="resol" id="resol" ></td> 
+</tr>
+<tr>
+<td align="center"><input type="checkbox" name="tdt" id="tdt">Sintonizador TDT</td> 
+</tr>
+</table>
+</div>
+
+<table style="margin: 0;">
+<tr>
+<td align="center" width=300> <input type="button" value="Volver al inico" onclick="volverPaginaPpal()" style="color: red;font-size: 12px"> </td>
+<td align="center" width=100><input type="submit" value="Agregar" id="agregar" style="color: green;font-size: 12px;display: none"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
