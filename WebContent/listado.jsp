@@ -6,14 +6,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href=”css/bootstrap.min.css” rel=”stylesheet” type=”text/css” />
-<script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
 <title>Listado de Electrodomésticos</title>
 </head>
 <script type="text/javascript">
 function volverPagListado(){
 	location.href  = "paginaListado.html";
 }
+
+function volverPagPrincipal(){
+	location.href = "paginaPrincipal.html";
+}
+
 </script>
 
 <body>
@@ -55,6 +58,11 @@ function volverPagListado(){
  <% } %> 
 </table>
 <br>
-<input type="button" value="Definir otros criterios" style="color: purple;" onClick="volverPagListado()">	
+<table>
+<tr>
+<td><input type="button" value="Definir otros criterios" style="color: purple;" onClick="volverPagListado()"></td>
+<td><input type="button" value="Volver a página principal" style="color: red;" onClick="volverPagPrincipal()"></td>
+</tr>
+</table>
 </body>
 </html>

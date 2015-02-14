@@ -42,11 +42,13 @@ function validar()
 <body>
 <h1>Alta de Electrodomestico</h1>
 <form action="agregar" method="post" onsubmit="return validar()" name="alta" >
+
+<p style="color:blue;font-weight: bold"> Ingrese los datos requeridos para agregar nuevo electrodomestico:</p> 
+
+<fieldset style="width:320px">
+<legend style="font-weight: bold">Datos del electrodoméstico</legend>
 <div style="margin: auto">
 <table>
-<tr> 
-<td colspan="4" style="font-weight: bold; font-size: large;"> Ingrese los datos requeridos para agregar nuevo electrodomestico: </td> 
-</tr>
 <tr>
 <td align="center"> Tipo: </td>
 <td> 
@@ -63,7 +65,16 @@ function validar()
 </tr>
 <tr>
 <td align="center"> Color: </td>
-<td><input type="text" name="color" id="color" > </td> 
+<td> 
+<select name="cmbColor">
+	<option value=' '> </option>
+	<option value="Blanco">Blanco</option>
+  	<option value="Negro">Negro</option>
+  	<option value="Rojo">Rojo</option>
+  	<option value="Azul">Azul</option>
+  	<option value="Gris">Gris</option>
+</select> 
+</td> 
 </tr>
 <tr> 
 <td align="center"> Peso: </td>
@@ -113,6 +124,7 @@ function validar()
 <td align="center" width=100><input type="submit" value="Agregar" id="agregar" style="color: green;font-size: 12px;display: none"></td>
 </tr>
 </table>
+</fieldset>
 </form>
 </body>
 </html>

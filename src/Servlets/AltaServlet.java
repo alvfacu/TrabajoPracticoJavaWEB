@@ -39,11 +39,12 @@ public class AltaServlet extends HttpServlet {
 		try
 		{
 			String base =  request.getParameter("base");
-			String color =  request.getParameter("color");
+			String color =  request.getParameter("cmbColor");
 			String peso = request.getParameter("peso");
 			char letra = request.getParameter("cmb").charAt(0);
-			String tipo = request.getParameter("cmbTipo");
-			if (tipo == "1")
+			char tipo = request.getParameter("cmbTipo").charAt(0);
+			System.out.println(tipo);
+			if (tipo=='1')
 			{
 				String carga =  request.getParameter("carga");
 				new ElectrodomesticoLogic().AddLavarropas(Double.parseDouble(base),Double.parseDouble(peso),color,letra,Double.parseDouble(carga));
@@ -60,7 +61,7 @@ public class AltaServlet extends HttpServlet {
 			
 		}	
 		
-		request.getRequestDispatcher("listado.jsp").forward(request, response);
+		response.sendRedirect("paginaPrincipal.html");
 	}
 
 }

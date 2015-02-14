@@ -14,12 +14,15 @@ function volverPaginaPpal()
 
 <body>
 <h1>Listado de Electrodomesticos</h1>
+
+<p style="color:red;font-weight: bold">Ingrese criterios para listar</p>
+
 <div style="margin: auto">
 <form action="lista" method="post">
+
+<fieldset style="width:350px">
+<legend style="font-weight: bold">Criterios</legend>
 <table>
-<tr> 
-<td colspan="4" style="font-weight: bold; font-size: large;"> Ingrese criterios para listar </td> 
-</tr>
 <tr> 
 <td align="center"> Precio Minimo: </td>
 <td><input type="text" name="minimo" id="minimo" > </td>
@@ -48,6 +51,7 @@ function volverPaginaPpal()
 <td align="center"><input type="submit" value="Listar" style="color: green;font-size: 12px"></td>
 </tr>
 </table>
+</fieldset>
 </form>
 </div>
 </body>
