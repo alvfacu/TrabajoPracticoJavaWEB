@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Listado de Electrodomésticos</title>
+<title>Listado de Electrodomesticos</title>
 </head>
 <script type="text/javascript">
 function volverPagListado(){
@@ -14,7 +14,7 @@ function volverPagListado(){
 }
 
 function volverPagPrincipal(){
-	location.href = "paginaPrincipal.html";
+	location.href = "index.jsp";
 }
 
 </script>
@@ -23,10 +23,10 @@ function volverPagPrincipal(){
 	<h1 style="font-style: 2 ;color: blue;">LISTADO</h1>
 	
 	<% ArrayList<Electrodomestico> electro = (ArrayList<Electrodomestico>)request.getAttribute("electros");%>
- 
-<table border="1" bordercolor="Blue">
+
+<table border="1" bordercolor="Blue" id="contenido">
  <tr style="font-weight: bold;">
-  	<td> Descripción </td>
+  	<td> Descripcion </td>
 	<td> Precio (U$S) </td>
 	<td> Color </td>
 	<td> Peso (kg) </td>
@@ -54,14 +54,26 @@ function volverPagPrincipal(){
  								{ %> <%= ((Entidades.Television)electro.get(i)).getTDT() %> 
  								<% } else { %>
  								<%="" %> <% } %></td>
+ 		<td> 
+ 		<form action="eliminarElectrodomestico" method="post">
+ 			<input type="submit" name="submit" value="Eliminar" style="color: red; font-weight: bold;">
+ 			<input type="hidden" name="idElec" value="<%=electro.get(i).getId()%>">
+ 		</form>
+ 		</td>
+ 		<td>
+ 		<form action="modificarElectrodomestico" method="post">
+ 			<input type="submit" name="submit" value="Modificar" style="color: green; font-weight: bold;">
+ 			<input type="hidden" name="idElec" value="<%=electro.get(i).getId()%>">
+ 		</form>
+ 		</td>
   </tr>
  <% } %> 
 </table>
 <br>
 <table>
 <tr>
-<td><input type="button" value="Definir otros criterios" style="color: purple;" onClick="volverPagListado()"></td>
-<td><input type="button" value="Volver a página principal" style="color: red;" onClick="volverPagPrincipal()"></td>
+<td><input type="button" value="Definir otros criterios" style="color: orange;" onClick="volverPagListado()"></td>
+<td><input type="button" value="Volver a pagina principal" style="color: blue;" onClick="volverPagPrincipal()"></td>
 </tr>
 </table>
 </body>

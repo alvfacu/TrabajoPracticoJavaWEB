@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import Negocio.ElectrodomesticoLogic;
 
 /**
- * Servlet implementation class AltaServlet
+ * Servlet implementation class ActualizarServlet
  */
-@WebServlet("/agregar")
-public class AltaServlet extends HttpServlet {
+@WebServlet("/modificar")
+public class ActualizarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AltaServlet() {
+    public ActualizarServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,36 +38,34 @@ public class AltaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try
-		{
-			String base =  request.getParameter("base");
-			String color =  request.getParameter("cmbColor");
-			String peso = request.getParameter("peso");
+		{		
+			String tipo = request.getParameter("tipo");
+			double precio = Double.parseDouble(request.getParameter("base"));
+			String color = request.getParameter("cmb");
+			double peso = Double.parseDouble(request.getParameter("peso"));
 			char letra = request.getParameter("cmb").charAt(0);
-			char tipo = request.getParameter("cmbTipo").charAt(0);
-			System.out.println(tipo);
-			if (tipo=='1')
+			if(tipo == "Lavarropas")
 			{
-				String carga =  request.getParameter("carga");
-				new ElectrodomesticoLogic().AddLavarropas(Double.parseDouble(base),Double.parseDouble(peso),color,letra,Double.parseDouble(carga));
+				double carga =  Double.parseDouble(request.getParameter("carga"));
+				new ElectrodomesticoLogic().AddLavarropas(precio, peso, color, letra, carga);
 			}
-			else 
+			else
 			{
-				String resol =  request.getParameter("resol");
+				double resol =  Double.parseDouble(request.getParameter("resol"));
 				boolean tdt = Boolean.valueOf(request.getParameter("tdt"));
-				new ElectrodomesticoLogic().AddTelevision(Double.parseDouble(base),Double.parseDouble(peso),color,letra,Double.parseDouble(resol),tdt);
+				new ElectrodomesticoLogic().AddTelevision(precio, peso, color, letra, resol, tdt);
 			}
-			request.setAttribute("mensaje", "El electrodomestico se ha dado de alta correctamente.");
+			new ElectrodomesticoLogic().Delete(Integer.parseInt(request.getParameter("idElec")));
+			request.setAttribute("mensaje", "El electrodomestico se ha modificado correctamente.");
 		}
 		catch (NumberFormatException e)
 		{
-			request.setAttribute("mensaje", "Ha ocurrido un error!");
+			request.setAttribute("mensaje", "Ha ocurrido un error en la modificación del electrodomestico.");
 		}	
 		finally
 		{
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		}
-		
 	}
-
 }
